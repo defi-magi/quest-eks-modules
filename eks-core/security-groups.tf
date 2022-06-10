@@ -1,5 +1,5 @@
 locals {
-  default_node_security_group = format("%s-%s-%s-%s-%s", var.common_tags.ApplicationId, var.common_tags.Project, "cluster", "default-node-sg", var.common_tags.Index)
+  default_node_security_group = format("%s-%s-%s-%s-%s", var.common_tags.application-id, var.common_tags.project, "cluster", "default-node-sg", var.common_tags.index)
 }
 
 resource "aws_security_group" "default_node_security_group" {
