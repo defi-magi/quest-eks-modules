@@ -48,12 +48,7 @@ resource "aws_security_group" "default_node_security_group" {
     to_port     = 8052
     protocol    = "TCP"
     cidr_blocks = [
-      "192.168.0.0/19",
-      "172.16.0.0/18",
-      "10.10.0.0/16",
-      "10.11.0.0/16",
-      "10.12.0.0/16",
-      "10.16.0.0/16"
+"10.0.0.0/16"
     ]
   }
 }
