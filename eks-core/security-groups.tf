@@ -1,5 +1,5 @@
 locals {
-  default_node_security_group = format("%s-%s-%s-%s-%s", var.common_tags.application-id, var.common_tags.project, "cluster", "default-node-sg", var.common_tags.index)
+  default_node_security_group = format("%s-%s-%s-%s-%s", var.common_tags.ApplicationId, var.common_tags.Project, "cluster", "default-node-sg", var.common_tags.Index)
 }
 
 resource "aws_security_group" "default_node_security_group" {
@@ -8,11 +8,46 @@ resource "aws_security_group" "default_node_security_group" {
 
   ingress {
     description = "Inbound access to EKS cluster."
+    from_port   = 30000
+    to_port     = 32767
+    protocol    = "TCP"
+    cidr_blocks = [
+      "192.168.0.0/19",
+      "172.16.0.0/18",
+      "10.10.0.0/16",
+      "10.11.0.0/16",
+      "10.12.0.0/16",
+      "10.16.0.0/16"
+    ]
+  }
+
+  ingress {
+    description = "Inbound access to EKS cluster."
+    from_port   = 9443
+    to_port     = 9443
+    protocol    = "TCP"
+    cidr_blocks = [
+      "192.168.0.0/19",
+      "172.16.0.0/18",
+      "10.10.0.0/16",
+      "10.11.0.0/16",
+      "10.12.0.0/16",
+      "10.16.0.0/16"
+    ]
+  }
+
+  ingress {
+    description = "Inbound access to EKS cluster."
     from_port   = 443
     to_port     = 443
     protocol    = "TCP"
     cidr_blocks = [
-      "0.0.0.0/0"
+      "192.168.0.0/19",
+      "172.16.0.0/18",
+      "10.10.0.0/16",
+      "10.11.0.0/16",
+      "10.12.0.0/16",
+      "10.16.0.0/16"
     ]
   }
 
@@ -22,7 +57,27 @@ resource "aws_security_group" "default_node_security_group" {
     to_port     = 80
     protocol    = "TCP"
     cidr_blocks = [
-      "0.0.0.0/0"
+      "192.168.0.0/19",
+      "172.16.0.0/18",
+      "10.10.0.0/16",
+      "10.11.0.0/16",
+      "10.12.0.0/16",
+      "10.16.0.0/16"
+    ]
+  }
+
+  ingress {
+    description = "Inbound access to EKS cluster."
+    from_port   = 8052
+    to_port     = 8052
+    protocol    = "TCP"
+    cidr_blocks = [
+      "192.168.0.0/19",
+      "172.16.0.0/18",
+      "10.10.0.0/16",
+      "10.11.0.0/16",
+      "10.12.0.0/16",
+      "10.16.0.0/16"
     ]
   }
 }
