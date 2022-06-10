@@ -1,7 +1,3 @@
-locals {
-  default_node_security_group = format("%s-%s-%s-%s-%s", var.common_tags.application-id, var.common_tags.project, "cluster", "default-node-sg", var.common_tags.index)
-}
-
 resource "aws_security_group" "default_node_security_group" {
   name   = local.default_node_security_group
   vpc_id = var.vpc_id
