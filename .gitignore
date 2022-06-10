@@ -35,7 +35,3 @@ ClientBin/
 selections.json
 terraform-provider-*
 docs/_build
-
-#vault
-license
-vault-keys
