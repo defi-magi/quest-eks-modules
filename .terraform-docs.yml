@@ -1,0 +1,51 @@
+formatter: markdown
+
+version: v0.16.0
+
+recursive:
+  enabled: false
+  path: modules
+
+sections:
+  hide: []
+  show: []
+
+content: |-
+  {{ .Header }}
+  {{ .Providers }}
+  {{ .Requirements }}
+  {{ .Modules }}
+  {{ .Inputs }}
+  {{ .Outputs }}
+  {{ .Resources }}
+  {{ .Footer }}
+output:
+  file: README.md
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+output-values:
+  enabled: false
+  from: ""
+
+sort:
+  enabled: true
+  by: name
+
+settings:
+  anchor: false
+  color: false
+  default: true
+  description: false
+  escape: false
+  hide-empty: false
+  html: false
+  indent: 1
+  lockfile: false
+  read-comments: true
+  required: false
+  sensitive: true
+  type: true
