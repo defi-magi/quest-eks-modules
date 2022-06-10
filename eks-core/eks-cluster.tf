@@ -12,7 +12,7 @@ module "eks" {
   cluster_security_group_use_name_prefix    = false
   iam_role_use_name_prefix                  = false
   node_security_group_use_name_prefix       = false
-  cluster_endpoint_private_access           = false
+  cluster_endpoint_private_access           = true
   cluster_endpoint_public_access            = true
   cluster_endpoint_public_access_cidrs      = var.control_plane_api_allow_list_cidrs
   enable_irsa                               = true
