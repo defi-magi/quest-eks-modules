@@ -1,15 +1,14 @@
 #---------------------------------------------------------------------------------------------------
 # Example variables file, please review each of these variables and update as necessary
 #---------------------------------------------------------------------------------------------------
-# Please review the Tagging Guidelines https://shinra.atlassian.net/wiki/spaces/IS/pages/938049600/Tagging+Guidelines
 common_tags = {
-  application-id                    = "eks"
-  project                           = "quest"
-  index                             = "00"
-  team                              = "For the Horde"
-  environment                       = "dev"
-  automated-by                      = "terraform"
-  created-by                        = "Alex"
+  application-id = "eks"
+  project        = "quest"
+  index          = "00"
+  team           = "For the Horde"
+  environment    = "dev"
+  automated-by   = "terraform"
+  created-by     = "Alex"
 }
 
 k8s_version = "1.22"
@@ -18,8 +17,6 @@ vpc_id = "vpc-id-goes-here"
 
 subnet_ids = ["subnet-00-id-goes-here", "subnet-01-id-goes-here", "subnet-02-id-goes-here"]
 
-# TODO: Make all cluster private only, public /w IP restrictions is accetable risk at this point (@alexey.soldatchenko)
-# This restricts the control plane API access from shinra VPN IP source ranges
 control_plane_api_allow_list_cidrs = []
 
 # Default instance types
@@ -27,8 +24,6 @@ instance_types = ["t3.medium"]
 
 cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
 
-# TODO: Replace with Teleport, else enable Namespace restrictions possible
-# FIXME: This isn't yet working like it should, let's get to this soon
 aws_auth_config = {
   manage_aws_auth_configmap = false
   aws_auth_users            = []

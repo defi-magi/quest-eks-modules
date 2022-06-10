@@ -2,13 +2,13 @@
 # Example variables file, please review each of these variables and update as necessary
 #---------------------------------------------------------------------------------------------------
 common_tags = {
-  application-id                    = "eks"
-  project                           = "quest"
-  index                             = "00"
-  team                              = "For the Horde"
-  environment                       = "dev"
-  automated-by                      = "terraform"
-  created-by                        = "Alex"
+  application-id = "eks"
+  project        = "quest"
+  index          = "00"
+  team           = "For the Horde"
+  environment    = "dev"
+  automated-by   = "terraform"
+  created-by     = "Alex"
 }
 
 # Argo expects the admin password in the secret to be bcrypt hashed. You can create this hash with
