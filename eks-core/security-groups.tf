@@ -12,12 +12,7 @@ resource "aws_security_group" "default_node_security_group" {
     to_port     = 32767
     protocol    = "TCP"
     cidr_blocks = [
-      "192.168.0.0/19",
-      "172.16.0.0/18",
-      "10.10.0.0/16",
-      "10.11.0.0/16",
-      "10.12.0.0/16",
-      "10.16.0.0/16"
+"10.0.0.0/16"
     ]
   }
 
@@ -27,12 +22,7 @@ resource "aws_security_group" "default_node_security_group" {
     to_port     = 9443
     protocol    = "TCP"
     cidr_blocks = [
-      "192.168.0.0/19",
-      "172.16.0.0/18",
-      "10.10.0.0/16",
-      "10.11.0.0/16",
-      "10.12.0.0/16",
-      "10.16.0.0/16"
+"10.0.0.0/16"
     ]
   }
 
@@ -42,12 +32,7 @@ resource "aws_security_group" "default_node_security_group" {
     to_port     = 443
     protocol    = "TCP"
     cidr_blocks = [
-      "192.168.0.0/19",
-      "172.16.0.0/18",
-      "10.10.0.0/16",
-      "10.11.0.0/16",
-      "10.12.0.0/16",
-      "10.16.0.0/16"
+"10.0.0.0/16"
     ]
   }
 
@@ -57,12 +42,7 @@ resource "aws_security_group" "default_node_security_group" {
     to_port     = 80
     protocol    = "TCP"
     cidr_blocks = [
-      "192.168.0.0/19",
-      "172.16.0.0/18",
-      "10.10.0.0/16",
-      "10.11.0.0/16",
-      "10.12.0.0/16",
-      "10.16.0.0/16"
+"10.0.0.0/16"
     ]
   }
 
