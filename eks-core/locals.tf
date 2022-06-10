@@ -1,6 +1,6 @@
 locals {
   vpc_cni_role_name          = format("%s-%s-%s-%s-%s", var.common_tags.application-id, var.common_tags.project, "cluster", "vpc-cni-role", var.common_tags.index)
-  cluster_name               = format("%s-%s-%s-%s-%s", var.common_tags.application-id, var.common_tags.project, "cluster", var.common_tags.Environment, var.common_tags.index)
+  cluster_name               = format("%s-%s-%s-%s-%s", var.common_tags.application-id, var.common_tags.project, "cluster", var.common_tags.environment, var.common_tags.index)
   # find the full list arguments that can be set for the node groups in the official GitHub documentation
   # https://github.com/terraform-aws-modules/terraform-aws-eks/blob/v18.21.0/examples/eks_managed_node_group/main.tf
   managed_node_groups = {
