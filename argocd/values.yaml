@@ -8,6 +8,8 @@ server:
   autoscaling:
     enabled: true
     minReplicas: 2
+  extraArgs:
+  - --insecure
 
 repoServer:
   autoscaling:
