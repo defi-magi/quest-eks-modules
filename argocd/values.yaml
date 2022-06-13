@@ -9,7 +9,7 @@ server:
     enabled: true
     minReplicas: 2
   extraArgs:
-  - --insecure
+  - --insecure # had issues with Istio and NGINX routing without this
 
 repoServer:
   autoscaling:

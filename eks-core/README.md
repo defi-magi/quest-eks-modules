@@ -54,7 +54,7 @@ common_tags = {
 ## How to Use
 ```go
 module "eks_00" {
-  source                             = "git::ssh://source.shinra.com/aws-terraform-infra/aws-shinra-k8s-modules//eks-core?ref=v1.0.2"
+  source                             = "git::git@github.com:defi-magi/quest-eks-modules.git//eks-core?ref=v1.0.0"
   common_tags                        = var.common_tags
   tags                               = var.tags
   k8s_version                        = var.k8s_version

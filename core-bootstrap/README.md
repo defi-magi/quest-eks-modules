@@ -33,10 +33,8 @@ The `_example.tfvars` is living documentation of how the variables should be def
 - ArgoCD admin password
   -  Argo expects the admin password in the secret to be bcrypt hashed
   - `htpasswd -nbBC 10 "" $ARGO_PWD | tr -d ':\n' | sed 's/$2y/$2a/'`
-  - TODO: Integrate SSO with ArgoCD
 - Private SSH key for the repository that you are provisioning
   - This should **NOT** be the key of your personal profile (plz don't do this)
-  - [Here's an example](https://bitbucket.shinra.com/plugins/servlet/ssh/projects/AWSTF/repos/aws-shinra-k8s-example/keys) of where you can go in BitBucket to enable fine-grained access for a repo
 
 The secrets are provided by the following variables:
 - *var.argocd_applications.core_bootstrap.repo_secret_name*
@@ -44,16 +42,15 @@ The secrets are provided by the following variables:
 
 Another important consideration is the providing the 'source of truth' repository itself, this is where the cluster looks to in order to sync the desired configuration.
 - var.argocd_applications.core_boostrap.repo_url
-  - Make sure to follow this convention: ssh://git@source.shinra.com/core-project/cluster-core-bootstrap.git
-  - ssh://git@source.shinra.com/`${bb-projectname}`/`${bb-repository-name}`.git
+  - Put the SSH GitHub repo clone URL
 - The target revision can be set with the `var.argocd_applications.core_bootstrap.target_revision` variable
   - The easiest way to think of this in this particular context is a branch `master`, `feature/testing-stuff`, `main`, `dev`, etc.
-  - Leaving this at `HEAD` means that you're targeting the latest changes in the primary branch
+  - Leaving this at `HEAD` means that you're targeting the latest commit at origin
 
 ## How to Use
 ```go
 module "argocd_bootstrap" {
-  source                            = "git::ssh://source.shinra.com/aws-terraform-infra/aws-shinra-k8s-modules//core-bootstrap?ref=v1.0.2"
+  source                            = "git::git@github.com:defi-magi/quest-eks-modules.git//core-bootstrap?ref=v1.0.0"
   common_tags                       = var.common_tags
   tags                              = var.tags
   eks_oidc_provider_arn             = data.terraform_remote_state.cluster_core.outputs.eks_cluster_full_outputs.oidc_provider_arn

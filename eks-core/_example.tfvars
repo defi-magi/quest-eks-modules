@@ -19,7 +19,6 @@ subnet_ids = ["subnet-00-id-goes-here", "subnet-01-id-goes-here", "subnet-02-id-
 
 control_plane_api_allow_list_cidrs = []
 
-# Default instance types
 instance_types = ["t3.medium"]
 
 cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
@@ -27,14 +26,14 @@ cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "sche
 aws_auth_config = {
   manage_aws_auth_configmap = false
   aws_auth_users            = []
-  aws_auth_roles = [ #TODO, add this as vars from top lvl
+  aws_auth_roles = [ =
     {
       rolearn  = "role-arn-goes-here"
       username = "role1"
       groups   = ["system:masters"]
     },
     {
-      rolearn  = "role-arn-goes-here" #had to delete path
+      rolearn  = "role-arn-goes-here"
       username = "role3"
       groups   = ["system:masters"]
     },
@@ -59,11 +58,11 @@ managed_node_groups = {
     disable_api_termination = false
     create_iam_role         = true
     iam_role_name           = null
-    iam_role_description    = null # this is a string
+    iam_role_description    = null
     iam_role_tags = {
       Purpose = "General Purpose Compute node group IAM role"
     }
-    iam_role_additional_policies = [] # i.e. "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+    iam_role_additional_policies = []
     labels = {
       NodeGroupPurpose = "GeneralPurposeCompute"
       IsSpotNode       = "false"
@@ -83,7 +82,7 @@ managed_node_groups = {
       "http_tokens" : "required"
     }
     create_security_group      = true
-    security_group_description = null # this is a string
+    security_group_description = null
     security_group_rules = {
       # phoneOut = {
       #   description = "Hello CloudFlare"

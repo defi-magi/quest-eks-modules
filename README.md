@@ -3,6 +3,16 @@ This repository contains modules that are used to provision Kubernetes clusters 
 
 ![Terraform Kubernetes](./static/terraform-kubernetes.png)
 
+```
+├── argocd
+│   └── argocd-application
+│       └── templates
+├── core-bootstrap
+├── eks-core
+├── helm
+└── static
+```
+
 ## Inventory
 | Name | Description |
 |---|---|
